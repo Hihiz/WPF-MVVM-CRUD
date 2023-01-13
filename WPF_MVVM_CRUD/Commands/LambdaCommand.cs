@@ -1,6 +1,7 @@
 ﻿using System;
+using WPF_MVVM_CRUD.Commands.Base;
 
-namespace WPF_MVVM_CRUD.Command.Base
+namespace WPF_MVVM_CRUD.Commands
 {
     public class LambdaCommand : Command
     {
