@@ -1,1 +1,2 @@
-# WPF_MVVM_CRUD
+# CRUD MVVM
+## Пример простого crud приложения
