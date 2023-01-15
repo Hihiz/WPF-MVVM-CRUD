@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_CRUD.Views.Windows"
+        xmlns:addEditVm="clr-namespace:WPF_MVVM_CRUD.ViewModels"
         mc:Ignorable="d"
         Title="AddEditWindow" Height="450" Width="600">
+    <!--d:DataContext ="{d:DesignInstance addEditVm:AddEditWindowViewModel, IsDesignTimeCreatable=True}"-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="391*"/>
@@ -14,9 +16,10 @@
 
         <StackPanel>
             <TextBlock Text="Имя"/>
-            <TextBox Text="{Binding CurrentUser.Name}"/>
+            <TextBox Text="{Binding CurrentUser.Name}"  />
 
             <TextBlock Text="Роль"/>
+
             <ComboBox ItemsSource="{Binding RoleName}"  
                       DisplayMemberPath="Name"                      
                       SelectedValue="{Binding CurrentUser.Role}"/>

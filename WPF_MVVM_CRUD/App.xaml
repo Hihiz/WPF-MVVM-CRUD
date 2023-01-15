@@ -1,8 +1,7 @@
 ﻿<Application x:Class="WPF_MVVM_CRUD.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPF_MVVM_CRUD"
-             StartupUri="Views/Windows/MainWindow.xaml">
+             xmlns:local="clr-namespace:WPF_MVVM_CRUD">
     <Application.Resources>
 
     </Application.Resources>

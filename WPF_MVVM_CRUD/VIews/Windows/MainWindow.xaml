@@ -6,11 +6,8 @@
         xmlns:local="clr-namespace:WPF_MVVM_CRUD"
         xmlns:vm="clr-namespace:WPF_MVVM_CRUD.ViewModels" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
+         d:DataContext="{d:DesignInstance vm:MainWindowViewModel, IsDesignTimeCreatable=True}"
         Title="{Binding Title}" Height="450" Width="600">
-
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -38,7 +35,7 @@
         </DataGrid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Добавить"  Margin="0, 0, 10, 0" Command="{Binding AddUserCommand}"/>
+            <Button Content="Добавить"  Margin="0, 0, 10, 0" Command="{Binding OpenAddEditWindowCommand}"/>
             <Button Content="Изменить"  Margin="0, 0, 10, 0" Command="{Binding EditUserCommand}"
                     CommandParameter="{Binding ElementName=userGrid, Path=SelectedItem}"/>
             <Button Content="Удалить" Command="{Binding DeleteUserCommand}"
