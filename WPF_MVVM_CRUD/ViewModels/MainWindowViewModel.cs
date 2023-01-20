@@ -15,34 +15,23 @@ namespace WPF_MVVM_CRUD.ViewModels
     public class MainWindowViewModel : ViewModel
     {
         #region Title
-
         private string _title = "Главное окно";
-
         public string Title { get => _title; set => Set(ref _title, value); }
-
         #endregion
 
         #region IEnumerable CurrentUsers
-
         private IEnumerable _currentUsers;
-
         public IEnumerable CurrentUsers { get => _currentUsers; set => Set(ref _currentUsers, value); }
-
         #endregion
 
         #region User CurrentUser
-
         private User _currentUser;
-
         public User CurrentUser { get => _currentUser; set => Set(ref _currentUser, value); }
-
         #endregion
 
         #region RoleName
-
         private List<Role> _roleName;
         public List<Role> RoleName { get => _roleName; set => Set(ref _roleName, value); }
-
         #endregion
 
         #region Command AddUserCommand
@@ -59,6 +48,12 @@ namespace WPF_MVVM_CRUD.ViewModels
 
             addEditWindow.Title = "Добавление нового пользователя";
             addEditWindow.ShowDialog();
+
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                CurrentUsers = db.Users.Include(r => r.Role).ToList();
+                RoleName = db.Roles.ToList();
+            }
         }
 
         #endregion
@@ -85,6 +80,12 @@ namespace WPF_MVVM_CRUD.ViewModels
 
                 addEditWindow.Title = $"Данные пользователя {((User)p).Name}";
                 addEditWindow.ShowDialog();
+
+                using (ApplicationContext db = new ApplicationContext())
+                {
+                    CurrentUsers = db.Users.Include(r => r.Role).ToList();
+                    RoleName = db.Roles.ToList();
+                }
             }
         }
 
@@ -99,6 +100,7 @@ namespace WPF_MVVM_CRUD.ViewModels
 
             return false;
         }
+
         private void OnDeleteUserCommandExecuted(object p)
         {
             if ((User)p != null)
@@ -111,9 +113,10 @@ namespace WPF_MVVM_CRUD.ViewModels
                         db.Users.Remove((User)p);
                         db.SaveChanges();
 
-                        MessageBox.Show($"Книга {((User)p).Name} удален!");
+                        MessageBox.Show($"Пользователь {((User)p).Name} удален!");
 
                         CurrentUsers = db.Users.Include(r => r.Role).ToList();
+                        RoleName = db.Roles.ToList();
                     }
                 }
             }
@@ -155,8 +158,6 @@ namespace WPF_MVVM_CRUD.ViewModels
                 {
                     MessageBox.Show(ex.Message);
                 }
-
-                CurrentUsers = db.Users.Include(r => r.Role).ToList();
             }
         }
 

@@ -10,7 +10,7 @@ namespace WPF_MVVM_CRUD.Models
 
         public ApplicationContext()
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
