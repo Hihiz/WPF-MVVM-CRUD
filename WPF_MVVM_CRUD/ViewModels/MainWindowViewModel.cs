@@ -75,8 +75,16 @@ namespace WPF_MVVM_CRUD.ViewModels
             {
                 AddEditWindow addEditWindow = new AddEditWindow();
 
-                addEditWindow.DataContext = this;
+                AddEditWindowViewModel addEditVM = new AddEditWindowViewModel(); //
+
+                addEditWindow.DataContext = addEditVM;
+
+
+                //addEditWindow.DataContext = this;
                 CurrentUser = (User)p;
+
+                addEditVM.CurrentUser = CurrentUser;
+                addEditVM.RoleName = RoleName;
 
                 addEditWindow.Title = $"Данные пользователя {((User)p).Name}";
                 addEditWindow.ShowDialog();
