@@ -46,7 +46,7 @@ namespace WPF_MVVM_CRUD.ViewModels
             addEditWindow.DataContext = this;
             CurrentUser = new User();
 
-            addEditWindow.Title = "Добавление нового пользователя";
+            Title = "Добавление нового пользователя";
             addEditWindow.ShowDialog();
 
             using (ApplicationContext db = new ApplicationContext())
@@ -78,7 +78,7 @@ namespace WPF_MVVM_CRUD.ViewModels
                 addEditWindow.DataContext = this;
                 CurrentUser = (User)p;
 
-                addEditWindow.Title = $"Данные пользователя {((User)p).Name}";
+                Title = $"Данные пользователя {((User)p).Name}";
                 addEditWindow.ShowDialog();
 
                 using (ApplicationContext db = new ApplicationContext())

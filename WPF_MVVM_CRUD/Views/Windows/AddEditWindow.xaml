@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_CRUD.Views.Windows"
         mc:Ignorable="d"
-        Title="AddEditWindow" Height="450" Width="600">
+        Title="{Binding Title}" Height="450" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="391*"/>
