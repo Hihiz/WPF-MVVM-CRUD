@@ -55,7 +55,7 @@ namespace WPF_MVVM_CRUD.Commands
 }
 ```
 
-### Models - данные
+### Models
 * User.cs
 ```c#
 namespace WPF_MVVM_CRUD.Models
@@ -213,7 +213,7 @@ namespace WPF_MVVM_CRUD.ViewModels
             addEditWindow.DataContext = this;
             CurrentUser = new User();
 
-            addEditWindow.Title = "Добавление нового пользователя";
+            Title = "Добавление нового пользователя";
             addEditWindow.ShowDialog();
         }
 
@@ -239,7 +239,7 @@ namespace WPF_MVVM_CRUD.ViewModels
                 addEditWindow.DataContext = this;
                 CurrentUser = (User)p;
 
-                addEditWindow.Title = $"Данные пользователя {((User)p).Name}";
+                Title = $"Данные пользователя {((User)p).Name}";
                 addEditWindow.ShowDialog();
             }
         }
@@ -339,7 +339,7 @@ namespace WPF_MVVM_CRUD.ViewModels
 ## Windows
 * AddEditWindow.xaml
 ```c#
- Title="AddEditWindow" Height="450" Width="600">
+ Title="{Binding Title}" Height="450" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="391*"/>
